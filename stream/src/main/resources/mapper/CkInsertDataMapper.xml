@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etocrm.sdk.stream.dao.CkInsertDataMapper">
+
+
+    <!--    <resultMap id="BaseResultMap" type="com.etocrm.sdk.stream.entity.Sdk" >-->
+    <!--        <result column="year" jdbcType="INT" property="year" />-->
+    <!--        <result column="quarter" jdbcType="INT" property="quarter" />-->
+    <!--        <result column="month" jdbcType="INT" property="month" />-->
+    <!--        <result column="dayOfWeek" jdbcType="INT" property="dayOfWeek" />-->
+    <!--        <result column="dayofMonth" jdbcType="INT" property="dayofMonth" />-->
+    <!--        <result column="dt" jdbcType="INT" property="dt" />-->
+    <!--        <result column="isfirstday" jdbcType="INT" property="isfirstday" />-->
+    <!--        <result column="country" jdbcType="VARCHAR" property="country" />-->
+    <!--        <result column="tv" jdbcType="VARCHAR" property="tv" />-->
+    <!--        <result column="avatarurl" jdbcType="INT" property="avatarurl" />-->
+    <!--        <result column="accuracy" jdbcType="VARCHAR" property="accuracy" />-->
+    <!--        <result column="language" jdbcType="VARCHAR" property="language" />-->
+    <!--        <result column="networktype" jdbcType="VARCHAR" property="networktype" />-->
+    <!--        <result column="verticalaccuracy" jdbcType="INT" property="verticalaccuracy" />-->
+    <!--        <result column="scene" jdbcType="INT" property="scene" />-->
+    <!--        <result column="pixelratio" jdbcType="VARCHAR" property="pixelratio" />-->
+    <!--        <result column="fontsizesetting" jdbcType="VARCHAR" property="fontsizesetting" />-->
+    <!--        <result column="path" jdbcType="VARCHAR" property="path" />-->
+    <!--        <result column="sdkversion" jdbcType="VARCHAR" property="sdkversion" />-->
+    <!--        <result column="province" jdbcType="INT" property="province" />-->
+    <!--        <result column="model" jdbcType="VARCHAR" property="model" />-->
+    <!--        <result column="brand" jdbcType="VARCHAR" property="brand" />-->
+    <!--        <result column="longitude" jdbcType="FLOAT" property="longitude" />-->
+    <!--        <result column="uu" jdbcType="VARCHAR" property="uu" />-->
+    <!--        <result column="query" jdbcType="ARRAY" property="query" />-->
+    <!--        <result column="version" jdbcType="VARCHAR" property="version" />-->
+    <!--        <result column="system" jdbcType="VARCHAR" property="system" />-->
+    <!--        <result column="reqip" jdbcType="VARCHAR" property="reqip" />-->
+    <!--        <result column="sharefrom" jdbcType="VARCHAR" property="sharefrom" />-->
+    <!--        <result column="gender" jdbcType="VARCHAR" property="gender" />-->
+    <!--        <result column="sharepath" jdbcType="VARCHAR" property="sharepath" />-->
+    <!--        <result column="city" jdbcType="VARCHAR" property="city" />-->
+    <!--        <result column="latitude" jdbcType="FLOAT" property="latitude" />-->
+    <!--        <result column="sharetitle" jdbcType="VARCHAR" property="sharetitle" />-->
+    <!--        <result column="platform" jdbcType="VARCHAR" property="platform" />-->
+    <!--        <result column="speed" jdbcType="INTEGER" property="speed" />-->
+    <!--        <result column="nickname" jdbcType="VARCHAR" property="nickname" />-->
+    <!--        <result column="screenwidth" jdbcType="INTEGER" property="screenwidth" />-->
+    <!--        <result column="b" jdbcType="VARCHAR" property="b" />-->
+    <!--        <result column="c" jdbcType="VARCHAR" property="c" />-->
+    <!--        <result column="horizontalaccuracy" jdbcType="INTEGER" property="horizontalaccuracy" />-->
+    <!--        <result column="sourcename" jdbcType="VARCHAR" property="sourcename" />-->
+    <!--        <result column="k" jdbcType="VARCHAR" property="k" />-->
+    <!--        <result column="m" jdbcType="VARCHAR" property="m" />-->
+    <!--        <result column="o" jdbcType="VARCHAR" property="O" />-->
+    <!--        <result column="p" jdbcType="INT" property="p" />-->
+    <!--        <result column="q" jdbcType="VARCHAR" property="q" />-->
+    <!--        <result column="te" jdbcType="ARRAY" property="te" />-->
+    <!--        <result column="startTime" jdbcType="INTEGER" property="startTime" />-->
+    <!--        <result column="u" jdbcType="VARCHAR" property="u" />-->
+    <!--        <result column="v" jdbcType="VARCHAR" property="v" />-->
+    <!--        <result column="tl" jdbcType="VARCHAR" property="tl" />-->
+    <!--        <result column="referrerinfo" jdbcType="VARCHAR" property="referrerinfo" />-->
+    <!--        <result column="screenheight" jdbcType="INTEGER" property="screenheight" />-->
+    <!--        <result column="newpage" jdbcType="INTEGER" property="newpage" />-->
+    <!--        <result column="depth" jdbcType="INTEGER" property="depth" />-->
+    <!--        <result column="entrypage" jdbcType="INTEGER" property="entrypage" />-->
+    <!--        <result column="exitpage" jdbcType="INTEGER" property="exitpage" />-->
+    <!--        <result column="accesspage" jdbcType="INTEGER" property="accesspage" />-->
+    <!--        <result column="openapp" jdbcType="INTEGER" property="openapp" />-->
+    <!--        <result column="pagetime" jdbcType="INTEGER" property="pagetime" />-->
+    <!--        <result column="apptime" jdbcType="INTEGER" property="apptime" />-->
+    <!--        <result column="sharetime" jdbcType="INTEGER" property="sharetime" />-->
+    <!--    </resultMap>-->
+
+
+    <insert id="batchInsert" parameterType="com.etocrm.sdk.stream.entity.Salary">
+        insert into eto.liqi2 (phone,`day`,age,`name`,salary,isback)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            ( #{item.phone}, #{item.day}, #{item.age},#{item.name},#{item.salary},#{item.isback})
+        </foreach>
+
+    </insert>
+
+    <insert id="insertBatch" parameterType="com.etocrm.sdk.stream.entity.Sdk">
+        insert into sdktest.ldk1 (
+        `year`,
+        quarter,
+        `month`,
+        dayOfWeek,
+        dayofMonth,
+        isfirstday,
+        country,
+        tv,
+        avatarurl,
+        accuracy,
+        `language`,
+        networktype,
+        verticalaccuracy,
+        scene,
+        pixelratio,
+        fontsizesetting,
+        dt,
+        path,
+        sdkversion,
+        province,
+        model,
+        brand,
+        longitude,
+        uu,
+        query,
+        version,
+        system,
+        reqip,
+        sharefrom,
+        altitude,
+        gender,
+        sharepath,
+        city,
+        latitude,
+        sharetitle,
+        platform,
+        speed,
+        nickname,
+        screenwidth,
+        b,
+        `c`,
+        horizontalaccuracy,
+        sourcename,
+        k,
+        m,
+        p,
+        q,
+        te,
+        t,
+        u,
+        v,
+        tl,
+        referrerinfo,
+        screenheight,
+        newpage,
+        depth,
+        entrypage,
+        exitpage,
+        accesspage,
+        openapp,
+        pagetime,
+        apptime,
+        sharetime
+     )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+        (#{item.year},
+            #{item.quarter},
+            #{item.month},
+            #{item.dayOfWeek},
+            #{item.dayofMonth},
+            #{item.isfirstday},
+            #{item.country},
+            #{item.tv},
+            #{item.avatarurl},
+            #{item.accuracy},
+            #{item.language},
+            #{item.networktype},
+            #{item.verticalaccuracy},
+            #{item.scene},
+            #{item.pixelratio},
+            #{item.fontsizesetting},
+            #{item.dt},
+            #{item.path},
+            #{item.sdkversion},
+            #{item.province},
+            #{item.model },
+            #{item.brand },
+            #{item.longitude},
+            #{item.uu},
+            #{item.query},
+            #{item.version},
+            #{item.system},
+            #{item.reqip},
+            #{item.sharefrom },
+            #{item.altitude},
+            #{item.gender},
+            #{item.sharepath},
+            #{item.city},
+            #{item.latitude},
+            #{item.sharetitle},
+            #{item.platform},
+            #{item.speed},
+            #{item.nickname},
+            #{item.screenwidth},
+            #{item.b},
+            #{item.c},
+            #{item.horizontalaccuracy},
+            #{item.sourcename},
+            #{item.k },
+            #{item.m},
+            #{item.o},
+            #{item.p},
+            #{item.q},
+            #{item.te},
+            #{item.t},
+            #{item.tl},
+            #{item.referrerinfo},
+            #{item.screenheight},
+            #{item.newpage},
+            #{item.depth},
+            #{item.entrypage},
+            #{item.exitpage},
+            #{item.openapp },
+            #{item.pagetime},
+            #{item.apptime},
+            #{item.sharetime}
+ )
+        </foreach>
+    </insert>
+
+
+
+
+<!--    <insert id="insertBatch" >-->
+<!--        INSERT INTO sdk2(-->
+<!--        `year`,-->
+<!--        quarter,-->
+<!--        `month`,-->
+<!--        dayOfWeek,-->
+<!--        dayofMonth,-->
+<!--        dt,-->
+<!--        isfirstday,-->
+<!--        country,-->
+<!--        tv,-->
+<!--        avatarurl,-->
+<!--        accuracy,-->
+<!--        `language`,-->
+<!--        networktype,-->
+<!--        verticalaccuracy,-->
+<!--        scene,-->
+<!--        pixelratio,-->
+<!--        fontsizesetting,-->
+<!--        path,-->
+<!--        sdkversion,-->
+<!--        province,-->
+<!--        model,-->
+<!--        brand,-->
+<!--        longitude,-->
+<!--        uu,-->
+<!--        query,-->
+<!--        version,-->
+<!--        system,-->
+<!--        reqip,-->
+<!--        sharefrom,-->
+<!--        ender,-->
+<!--        sharepath,-->
+<!--        city,-->
+<!--        latitude,-->
+<!--        haretitle,-->
+<!--        platform,-->
+<!--        speed,-->
+<!--        nickname,-->
+<!--        screenwidth,-->
+<!--        b,-->
+<!--        c,-->
+<!--        horizontalaccuracy,-->
+<!--        sourcename,-->
+<!--        k,-->
+<!--        m,-->
+<!--        o,-->
+<!--        p,-->
+<!--        q,-->
+<!--        te,-->
+<!--        startTime,-->
+<!--        u,-->
+<!--        v,-->
+<!--        tl,-->
+<!--        referrerinfo,-->
+<!--        screenheight,-->
+<!--        newpage,-->
+<!--        depth,-->
+<!--        entrypage,-->
+<!--        exitpage,-->
+<!--        accesspage,-->
+<!--        openapp,-->
+<!--        pagetime,-->
+<!--        apptime,-->
+<!--        sharetime-->
+<!--        )-->
+<!--        values-->
+<!--         <foreach collection="list" item="item" index="index" separator=",">-->
+<!--        (-->
+
+<!--                   #{item.nickname},-->
+<!--                    #{item.gender},-->
+<!--                   #{item.language, jdbcType=VARCHAR},-->
+<!--                   #{item.city},-->
+<!--                    #{item.province},-->
+<!--                    #{item.country},-->
+<!--                    #{item.avatarurl},-->
+<!--                    #{item.model},-->
+<!--                    #{item.brand},-->
+<!--                    #{item.pixelratio},-->
+<!--                    #{item.screenwidth},-->
+<!--                    #{item.screenheight},-->
+<!--                    #{item.version},-->
+<!--                    #{item.system},-->
+<!--                    #{item.platform},-->
+<!--                    #{item.fontsizesetting},-->
+<!--                    #{item.sdkversion},-->
+<!--                    #{item.networktype},-->
+<!--                    #{item.ao},-->
+<!--                    #{item.q},-->
+<!--                    #{item.te},-->
+<!--                    #{item.sharefrom},-->
+<!--                    #{item.sharetitle},-->
+<!--                    #{item.sharepath},-->
+<!--                    #{item.latitude},-->
+<!--                    #{item.longitude},-->
+<!--                    #{item.speed},-->
+<!--                    #{item.accuracy},-->
+<!--                    #{item.altitude},-->
+<!--                    #{item.verticalaccuracy},-->
+<!--                    #{item.horizontalaccuracy},-->
+<!--                    #{item.o},-->
+<!--                    #{item.u},-->
+<!--                    #{item.m},-->
+<!--                    #{item.p},-->
+<!--                    #{item.sourcename},-->
+<!--                    #{item.reqip},-->
+<!--                    #{item.b},-->
+<!--                    #{item.k},-->
+<!--                    #{item.v},-->
+<!--                    #{item.t},-->
+<!--                    #{item.c},-->
+<!--                    #{item.uu},-->
+<!--                    #{item.isfirstday},-->
+<!--                    #{item.dt},-->
+<!--                    0,-->
+<!--                    #{item.m_depth},-->
+<!--                    #{item.m_entrypage},-->
+<!--                    0,-->
+<!--                    #{item.m_accesspage},-->
+<!--                    0,-->
+<!--                    0,-->
+<!--                    #{item.m_apptime},-->
+<!--                    #{item.m_sharetime},-->
+<!--                    #{item.tv},-->
+<!--                    #{item.tl}-->
+<!--        )-->
+<!--        </foreach>-->
+
+<!--    </insert>-->
+
+
+<!--    <insert id="insertSingle" >-->
+<!--        INSERT INTO sdk2(-->
+<!--        nickname,-->
+<!--        gender,-->
+<!--        `language`,-->
+<!--        city,-->
+<!--        province,-->
+<!--        country,-->
+<!--        avatarurl,-->
+<!--        model,-->
+<!--        brand,-->
+<!--        pixelratio,-->
+<!--        screenwidth,-->
+<!--        screenheight,-->
+<!--        version,-->
+<!--        system,-->
+<!--        platform,-->
+<!--        fontsizesetting,-->
+<!--        sdkversion,-->
+<!--        networktype,-->
+<!--        ao,-->
+<!--        q,-->
+<!--        te,-->
+<!--        sharefrom,-->
+<!--        sharetitle,-->
+<!--        sharepath,-->
+<!--        latitude ,-->
+<!--        longitude ,-->
+<!--        speed,-->
+<!--        accuracy,-->
+<!--        altitude,-->
+<!--        verticalaccuracy,-->
+<!--        horizontalaccuracy,-->
+<!--        o,-->
+<!--        u,-->
+<!--        m,-->
+<!--        p,-->
+<!--        sourcename,-->
+<!--        reqip,-->
+<!--        b,-->
+<!--        k,-->
+<!--        v,-->
+<!--        t,-->
+<!--        c,-->
+<!--        uu,-->
+<!--        isfirstday,-->
+<!--        dt,-->
+<!--        m_newpage,-->
+<!--        m_depth,-->
+<!--        m_entrypage,-->
+<!--        m_exitpage,-->
+<!--        m_accesspage,-->
+<!--        m_openapp,-->
+<!--        m_pagetime,-->
+<!--        m_apptime,-->
+<!--        m_sharetime,-->
+<!--        tv,-->
+<!--        tl-->
+<!--        )-->
+<!--        values-->
+<!--            (-->
+<!--            #{nickname},-->
+<!--            #{gender},-->
+<!--            #{language, jdbcType=VARCHAR},-->
+<!--            #{city},-->
+<!--            #{province},-->
+<!--            #{country},-->
+<!--            #{avatarurl},-->
+<!--            #{model},-->
+<!--            #{brand},-->
+<!--            #{pixelratio},-->
+<!--            #{screenwidth},-->
+<!--            #{screenheight},-->
+<!--            #{version},-->
+<!--            #{system},-->
+<!--            #{platform},-->
+<!--            #{fontsizesetting},-->
+<!--            #{sdkversion},-->
+<!--            #{networktype},-->
+<!--            #{ao},-->
+<!--            #{q},-->
+<!--            #{te},-->
+<!--            #{sharefrom},-->
+<!--            #{sharetitle},-->
+<!--            #{sharepath},-->
+<!--            #{latitude},-->
+<!--            #{longitude},-->
+<!--            #{speed},-->
+<!--            #{accuracy},-->
+<!--            #{altitude},-->
+<!--            #{verticalaccuracy},-->
+<!--            #{horizontalaccuracy},-->
+<!--            #{o},-->
+<!--            #{u},-->
+<!--            #{m},-->
+<!--            #{p},-->
+<!--            #{sourcename},-->
+<!--            #{reqip},-->
+<!--            #{b},-->
+<!--            #{k},-->
+<!--            #{v},-->
+<!--            #{t},-->
+<!--            #{c},-->
+<!--            #{uu},-->
+<!--            #{isfirstday},-->
+<!--            #{dt},-->
+<!--            0,-->
+<!--            #{m_depth},-->
+<!--            #{m_entrypage},-->
+<!--            0,-->
+<!--            #{m_accesspage},-->
+<!--            0,-->
+<!--            0,-->
+<!--            #{m_apptime},-->
+<!--            #{m_sharetime},-->
+<!--            #{tv},-->
+<!--            #{tl}-->
+<!--            )-->
+
+
+<!--    </insert>-->
+
+
+</mapper>
